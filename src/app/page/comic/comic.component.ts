@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ComicLoadService } from '../../service/comic-load.service';
 import { Router } from '@angular/router';
+import {AuthService} from '../../service/auth.service';
+
 // import { NgxSpinnerService } from 'ngx-spinner';
 
 
@@ -18,6 +20,7 @@ export class ComicComponent implements OnInit {
 
   constructor(private comicServise: ComicLoadService,
      private router: Router,
+     private auth:AuthService
     //  private spinner: NgxSpinnerService
      ) { }
 

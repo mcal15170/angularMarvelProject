@@ -2,12 +2,29 @@
 <div class="col-md-12">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12">
-        <h3 class="text-center">
-          Marvel Api Comics Collection
-        </h3>
+      <div class="col-md-12 header">
+        <div class="row border-bottom">
+          <div class="col-md-9">
+            <h3 class="text-left">
+              Marvel Api Comics Collection
+            </h3>
+          </div>
+          <div class="col-md-3">
+            <div class="row" *ngIf="auth.user$ | async as user">
+              <div class="col-md-7 text-right">
+                <img [src]="user.photoURL" class="userInfo">
+              </div>
+              <div class="col-md-3">
+                <p>hi,&nbsp;{{user.displayName }}</p>
+              </div>
+              <div class="col-md-2">
+                <a (click)="auth.signOut()"><i class="fa fa-power-off"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12 content">
         <div class="row" infiniteScroll [infiniteScrollDistance]="0" [infiniteScrollThrottle]="0"
           (scrolled)="onScroll()">
           <div class="col-md-4 productlist" *ngFor="let item of allComics">
@@ -45,12 +62,6 @@
                       <i class="fa fa-twitter"></i>&nbsp;&nbsp;
                       <i class="fa fa-whatsapp"></i></p>
                   </div>
-                  <!-- <div class="col-md-12">
-                    <p class="price"><b>Product Description</b></p>
-                    <div class="text ellipsis">
-                      <p class="text-concat">{{item.description?item.description:'No Description Available'}}</p>
-                    </div>
-                  </div> -->
                 </div>
               </div>
             </div>
@@ -61,3 +72,4 @@
     </div>
   </div>
 </div>
+

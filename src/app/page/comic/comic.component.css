@@ -46,3 +46,14 @@ img{
 /* .product{
     border: 1px solid #ddd;
 } */
+
+.userInfo{
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.header{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

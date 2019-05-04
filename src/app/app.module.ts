@@ -32,30 +32,24 @@ import {
   MatTableModule,
   MatTabsModule,
 } from '@angular/material';
-// loader
 import { LoaderService } from './service/loader.service';
 import { LoaderInterceptorService } from './service/loader-interceptor.service';
-// import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoaderComponent } from './page/loader/loader.component';
-import { GoogleLoginComponent } from './page/google-login/google-login.component';
-// google login
-import {
-  SocialLoginModule,
-  AuthServiceConfig,
-  GoogleLoginProvider,
-} from "angular-6-social-login";
+import { LoginComponent } from './page/login/login.component';
+import { AuthService } from './service/auth.service';
+// firebase login
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
-// Configs 
-export function getAuthServiceConfigs() {
-  let config = new AuthServiceConfig(
-    [
-      {
-        id: GoogleLoginProvider.PROVIDER_ID,
-        provider: new GoogleLoginProvider("94463001171-oenn588hjl937tne39qcl6omrd0kff95.apps.googleusercontent.com")
-      }
-    ]
-  );
-  return config;
+const config = {/* your firebase web config */
+  apiKey: "AIzaSyAKoyJI-ySbIrcfIGi6kdskKdHN80gPXdA",
+  authDomain: "login-3278a.firebaseapp.com",
+  databaseURL: "https://login-3278a.firebaseio.com",
+  projectId: "login-3278a",
+  storageBucket: "login-3278a.appspot.com",
+  messagingSenderId: "475442789379",
+  appId: "1:475442789379:web:f7d5c267c4683fbd"
 }
 
 
@@ -65,7 +59,7 @@ export function getAuthServiceConfigs() {
     ComicComponent,
     ComicDetailComponent,
     LoaderComponent,
-    GoogleLoginComponent,
+    LoginComponent,
 
   ],
   imports: [
@@ -94,18 +88,15 @@ export function getAuthServiceConfigs() {
     PortalModule,
     ScrollingModule,
     InfiniteScrollModule,
-    //login
-    SocialLoginModule
+    AngularFireModule.initializeApp(config),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
-  providers: [ComicLoadService, LoaderService,
+  providers: [ComicLoadService, LoaderService, AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptorService,
       multi: true
-    },
-    {
-    provide: AuthServiceConfig,
-    useFactory: getAuthServiceConfigs
     }
   ],
   bootstrap: [AppComponent]

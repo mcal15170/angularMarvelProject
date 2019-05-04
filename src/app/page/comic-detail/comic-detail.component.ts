@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { ComicLoadService } from '../../service/comic-load.service';
 // import { NgxSpinnerService } from 'ngx-spinner';
 import { Location } from '@angular/common';
+import {AuthService} from '../../service/auth.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class ComicDetailComponent implements OnInit {
     private router: Router,
     // private spinner: NgxSpinnerService,
     private _location: Location,
+    private auth:AuthService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
