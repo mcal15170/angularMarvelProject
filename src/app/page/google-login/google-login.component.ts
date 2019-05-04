@@ -38,7 +38,7 @@ export class GoogleLoginComponent implements OnInit {
 
   signOut() {
   //  localstorage
-  localStorage.removeItem("oauth2_ss::http://localhost:4200::1::DEFAULT::_ss_");
+  localStorage.removeItem("oauth2_ss::http://localhost:4200::1::DEFAULT::_ss_")
   }
 
 
