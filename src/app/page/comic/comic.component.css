@@ -1,0 +1,48 @@
+.productlist{
+    background-color: white;
+    margin-bottom: 20px;
+
+}
+
+.product{
+    border: 1px solid #ddd;
+
+}
+
+img{
+    width: 100%;
+    height: 380px;
+    
+}
+
+
+  .title {
+    position: relative;
+    display: inline-block;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 1.8em; /* (Number of lines you want visible) * (line-height) */
+    /* line-height: 1.2em; */
+    text-align:justify;
+  }
+  
+.comic:hover{
+    /* background-color: red; */
+    opacity: 0.7;
+    
+}
+
+.fa{
+    color: #ff7733;
+    /* #33ccff */
+}
+
+.socialIcon{
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+
+/* .product{
+    border: 1px solid #ddd;
+} */
