@@ -10,8 +10,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     top: 0px;
     width: 100%;
     height: 100%;
-    z-index: 9999;
-    background: url('./assets/img/pink.gif') 
+    z-index: 10;
+    background: url('./assets/img/Spinner-1s-200px.gif') 
                 50% 50% no-repeat rgb(249,249,249);
   }  
 

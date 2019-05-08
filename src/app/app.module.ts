@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComicDetailComponent } from './page/comic-detail/comic-detail.component';
 // angular material
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { CookieService } from 'ngx-cookie-service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { A11yModule } from '@angular/cdk/a11y';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -92,7 +93,7 @@ const config = {/* your firebase web config */
     AngularFirestoreModule,
     AngularFireAuthModule,
   ],
-  providers: [ComicLoadService, LoaderService, AuthService,
+  providers: [ComicLoadService, LoaderService, AuthService, CookieService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptorService,

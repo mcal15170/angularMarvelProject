@@ -8,8 +8,10 @@
             <div *ngIf="auth.user$ | async; then authenticated else guest">
             </div>
             <ng-template #guest>
-              <button class="btn btn-lg btn-google btn-block text-uppercase" (click)="auth.googleSignin()">
+              <button class="btn btn-lg btn-google btn-block text-uppercase" (click)="auth.socialLogin('google')">
                 <i class="fa fa-google"></i> Connect Google</button>
+              <button class="btn btn-lg btn-google btn-block text-uppercase" (click)="auth.socialLogin('facebook')">
+                <i class="fa fa-facebook"></i> Connect Facebook</button>
             </ng-template>
           </div>
         </div>

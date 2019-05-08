@@ -47,8 +47,8 @@ img{
     border: 1px solid #ddd;
 } */
 
-.userInfo{
-    width: 40px;
+.avtar{
+    width: 45px;
     height: auto;
     border-radius: 50%;
 }
@@ -56,4 +56,60 @@ img{
 .header{
     padding-top: 15px;
     padding-bottom: 15px;
+    z-index: 10;
+}
+
+.header-title{
+padding:10px;
+color: white
+}
+
+/* stikly css(fixed header) */
+
+.visible-title {
+    visibility: visible;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+}
+
+nav{
+    background-color: cadetblue;
+    z-index: 10;
+    height: 60px;
+}
+
+nav .header-content{
+    padding-top: 8px;
+}
+
+.logout ,.userName{
+    padding: 9px;
+}
+
+.userName p{
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 75ch;
+}
+
+.loginType .fa{
+    padding: 14px;
+    color: floralwhite;
+    transform: scale(1.5,1.5);
+}
+
+.logout .fa{
+    color: white;
+}
+
+.logout .fa:hover{
+    opacity: 0.7;
+    color: black;
 }

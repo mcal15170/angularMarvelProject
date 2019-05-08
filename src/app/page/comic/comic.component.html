@@ -2,27 +2,37 @@
 <div class="col-md-12">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12 header">
-        <div class="row border-bottom">
-          <div class="col-md-9">
-            <h3 class="text-left">
-              Marvel Api Comics Collection
-            </h3>
-          </div>
-          <div class="col-md-3">
-            <div class="row" *ngIf="auth.user$ | async as user">
-              <div class="col-md-7 text-right">
-                <img [src]="user.photoURL" class="userInfo">
-              </div>
-              <div class="col-md-3">
-                <p>hi,&nbsp;{{user.displayName }}</p>
-              </div>
-              <div class="col-md-2">
-                <a (click)="auth.signOut()"><i class="fa fa-power-off"></i></a>
+      <div class="col-md-12 header" id="navbar">
+        <nav class="border-bottom">
+          <div class="row header-content">
+            <div class="col-md-9">
+              <h5 class="text-left header-title">
+                Marvel Api Comics Collection
+              </h5>
+            </div>
+            <div class="col-md-3">
+              <div class="row" *ngIf="auth.user$ | async as user">
+                <div class="col-md-6 text-right">
+                  <img [src]="user.photoURL" class="avtar">
+                </div>
+                <div class="col-md-2 userName">
+                  <p>{{ user.displayName| titlecase }}</p>
+                </div>
+                <div class="col-md-2 text-right">
+                    <div class="loginType" *ngIf="user.type=='google'">
+                      <i class="fa fa-google-plus-square"></i>
+                    </div>
+                    <div class="loginType" *ngIf="user.type=='facebook'">
+                        <i class="fa fa-facebook-square"></i>
+                      </div>
+                </div>
+                <div class="col-md-2 logout">
+                  <a (click)="auth.signOut()"><i class="fa fa-power-off"></i></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </nav>
       </div>
       <div class="col-md-12 content">
         <div class="row" infiniteScroll [infiniteScrollDistance]="0" [infiniteScrollThrottle]="0"
@@ -72,4 +82,3 @@
     </div>
   </div>
 </div>
-

@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ComicLoadService } from '../../service/comic-load.service';
 import { Router } from '@angular/router';
 import {AuthService} from '../../service/auth.service';
-
-// import { NgxSpinnerService } from 'ngx-spinner';
-
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-comic',
@@ -21,16 +19,20 @@ export class ComicComponent implements OnInit {
   constructor(private comicServise: ComicLoadService,
      private router: Router,
      private auth:AuthService
-    //  private spinner: NgxSpinnerService
      ) { }
 
   ngOnInit() {
-    // this.spinner.show();
-
-    // setTimeout(() => {
-    //   /** spinner ends after 5 seconds */
-    //   this.spinner.hide();
-    // }, 2000);
+    $(window).scroll(function(){
+      if ($(window).scrollTop() >= 40) {
+          $('nav').addClass('fixed-header');
+          $('nav div').addClass('visible-title');
+      }
+      else {
+          $('nav').removeClass('fixed-header');
+          $('nav div').removeClass('visible-title');
+      }
+  });
+  
     this.getComics();
   }
   //get comic collection
